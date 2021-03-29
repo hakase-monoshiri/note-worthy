@@ -1,0 +1,12 @@
+User.create(email: "test@test.net", location: "Philly", age: 27, password: "password")
+User.create(email: "test2@test.net", location: "NY", age: 34, password: "password2")
+User.create(email: "test3@test.net", location: "Chicagi", age: 9, password: "password3")
+User.create(email: "test4@test.net", location: "Greese", age: 7, password: "password4")
+
+Note.create(title: "Seeded", content: "I successfullty made a seed", user_id: 1, completion_date: Time.now)
+Note.create(title: "Seeded 2", content: "I successfullty made another seed", user_id: 1, completion_date: Time.now)
+Note.create(title: "Seeded 3", content: "I just keep on making em seed", user_id: 2, completion_date: Time.now)
+Note.create(title: "Seeded 4", content: "I put my seed in her bush for life", user_id: 3, completion_date: Time.now)
+Note.create(title: "Seeded 5", content: "I successfullty made a fith seed", user_id: 4, completion_date: Time.now)
+Note.create(title: "Seeded 6", content: "I successfullty made a sixth seed", user_id: 2, completion_date: Time.now)
+Note.create(title: "Seeded 7", content: "I successfullty made the last seed", user_id: 1, completion_date: Time.now)
