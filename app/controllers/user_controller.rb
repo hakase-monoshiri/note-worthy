@@ -41,7 +41,7 @@ class UserController < ApplicationController
 
     end
 
-    get "users/:id/edit" do
+    get "/users/:id/edit" do
         if logged_in?
             @user = current_user
 
@@ -51,8 +51,19 @@ class UserController < ApplicationController
         end
     end
 
-    
+    post "/users/:id" do
+        @user = User.find(params[:id])
 
+        if logged_in? && params[:password_confirmation] == params[:user][:password]
+            @user.update(params[:user])
+            redirect to "/users/#{@user.id}"
+        elsif logged_in?
+            redirect to "/users/#{@user.id}/edit"
+        else
+            redirect to "/"
+        end
+    end
+    
         
     helpers do
         
