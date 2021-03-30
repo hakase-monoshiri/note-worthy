@@ -1,10 +1,23 @@
 class UserController < ApplicationController
 
-    get "/sign-up" do
+    get "users/sign-up" do
 
         erb :"user/signup"
 
     end
+
+    post "/users" do 
+        @user = User.find_by(email: params[:user][:email])
+
+        if @user && @user.authenticate(params[:user][:password])
+            session[:id] = @user.id
+            redirect to "/users/#{@user.id}"
+        else
+            redirect to "/"
+        end
+    end
+
+
     
     post "/users/new" do
 
@@ -13,7 +26,7 @@ class UserController < ApplicationController
            session[:id] = @user.id
            redirect to "/users/#{@user.id}"
         else
-            redirect to "/sign-up"
+            redirect to "/users/sign-up"
         end
     end
 
@@ -27,6 +40,18 @@ class UserController < ApplicationController
         end
 
     end
+
+    get "users/:id/edit" do
+        if logged_in?
+            @user = current_user
+
+            erb :"user/edit"
+        else
+            redirect to "/"
+        end
+    end
+
+    
 
         
     helpers do
