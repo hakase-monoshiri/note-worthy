@@ -62,7 +62,18 @@ class NoteController < ApplicationController
         end
     end
 
-    
+    get "/notes/:id/delete" do
+        @note = current_user.notes.find(params[:id])
+
+        erb :"note/delete"
+    end
+
+    delete "/notes/:id" do
+        @note = current_user.notes.find(params[:id])
+        @note.destroy
+
+        redirect to "/users/#{current_user.id}"
+    end
 
 
 

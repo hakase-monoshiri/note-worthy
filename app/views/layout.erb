@@ -20,9 +20,11 @@
 
       <footer class="branding">
       <div class="footer-nav">
+        <% if logged_in? %>
           <small> <a href="/users/<%= current_user.id %>"> My Dashboard </a> </small>
           <small> <a href="/notes/new"> New Note </a> </small>
           <small> <a href="/users/<%= current_user.id %>/edit"> Edit My Profile </a> </small>
+          <% end %>
         </div>
         <small>&copy; 2021 <strong>NoteWorthy</strong></small>
       </footer>

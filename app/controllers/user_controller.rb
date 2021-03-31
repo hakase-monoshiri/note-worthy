@@ -6,6 +6,13 @@ class UserController < ApplicationController
 
     end
 
+    get "/users/sign-out" do
+
+        session.clear
+
+        redirect to "/"
+    end
+
     post "/users" do 
         @user = User.find_by(email: params[:user][:email])
 
@@ -83,6 +90,7 @@ class UserController < ApplicationController
     delete "/users/:id" do
         @user = User.find(params[:id])
         @user.destroy
+        session.clear
 
         redirect to "/"
     end
