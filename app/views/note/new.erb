@@ -1,0 +1,32 @@
+<h1>Add A New NoteWorthy Achievement</h1>
+
+<form method="post" action="/notes/new">
+
+    <label for="Title">Title</label> <br>
+    <input type="text" id="title" name="note[title]" required>
+    <br>
+
+    <label for="satisfaction rating">Satisfaction</label> <br>
+    <input type="range" min="0" max="10" id="satisfaction rating" name="note[satisfaction_rating]" required>
+    <br>
+
+    <label for="difficulty">Difficulty</label> <br>
+    <input type="range" min="0" max="10" id="difficulty" name="note[difficulty]" required>
+    <br>
+
+    <label for="content">Additional Details about your achievement</label> <br>
+    <textarea type="text" id="content" name="note[content]" style="height:20vh; width:100%;"> 
+        Write down some details to help remember your NoteWorthy achievement!
+    </textarea>
+    <br>
+
+    <label for="completion date">When was this completed?</label> <br>
+    <input type="datetime-local" id="completion date" name="note[completion_date]" required>
+    <br>
+
+    
+
+
+    <input type="submit" id="sign up" value="Make a note of it!">
+
+</form>

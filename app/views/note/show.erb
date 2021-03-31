@@ -1,0 +1,13 @@
+<h1> <%= @note.title %>! </h1> <br>
+
+<p> <%= @note.content %> </p> <br>
+
+
+<h3> Diffculty Rating: <%= @note.difficulty ||= "?" %>/10 </h3> <br>
+<h3> Satisfaction Rating: <%= @note.satisfaction_rating  ||= "?"  %>/10 </h3> <br>
+
+<h5>Completed on: <%= @note.completion_date.strftime("%B %-d, %Y at %l:%M%P") %></h5>
+
+<a href="/notes/<%= @note.id %>/edit">Edit this note</a>
+<a href="/notes/<%= @note.id %>/delete">Delete this note</a>
+<a href="/users/<%= current_user.id %>">Back to dashboard</a>

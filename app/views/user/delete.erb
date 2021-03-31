@@ -1,0 +1,12 @@
+<h2>Are you sure you want to delete your account, <%= @user.first_name %>?</h2>
+
+<br>
+
+<form method="post" action="/users/ <%= @user.id %>" id="delete button">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" id="delete" value="delete account">
+</form>
+
+<br>
+
+<a href="/users/<%= @user.id %>"> Back to your account page </a>

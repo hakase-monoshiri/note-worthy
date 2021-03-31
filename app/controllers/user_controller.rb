@@ -1,6 +1,6 @@
 class UserController < ApplicationController
 
-    get "users/sign-up" do
+    get "users/new" do
 
         erb :"user/signup"
 
@@ -26,7 +26,7 @@ class UserController < ApplicationController
            session[:id] = @user.id
            redirect to "/users/#{@user.id}"
         else
-            redirect to "/users/sign-up"
+            redirect to "/users/new"
         end
     end
 
@@ -36,10 +36,12 @@ class UserController < ApplicationController
 
             erb :"user/show"
         else
-            redirect to "/"
+            erb :"user/error"
         end
 
     end
+
+
 
     get "/users/:id/edit" do
         if logged_in?
@@ -47,11 +49,24 @@ class UserController < ApplicationController
 
             erb :"user/edit"
         else
-            redirect to "/"
+            erb :"user/error"
         end
     end
 
-    post "/users/:id" do
+    get "/users/:id/delete" do
+        if logged_in?
+            @user = current_user
+
+            erb :"user/delete"
+        else
+            erb :"user/error"
+        end
+
+    end
+    
+
+
+    patch "/users/:id" do
         @user = User.find(params[:id])
 
         if logged_in? && params[:password_confirmation] == params[:user][:password]
@@ -60,24 +75,17 @@ class UserController < ApplicationController
         elsif logged_in?
             redirect to "/users/#{@user.id}/edit"
         else
-            redirect to "/"
+            erb :"user/error"
         end
     end
+
     
-        
-    helpers do
-        
-        def current_user
-            User.find(session[:id])
-        end
-      
-        def logged_in?
-            !!session[:id] 
-        end
+    delete "/users/:id" do
+        @user = User.find(params[:id])
+        @user.destroy
 
+        redirect to "/"
     end
-
-
 
 
 end
