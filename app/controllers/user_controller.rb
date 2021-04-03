@@ -11,6 +11,7 @@ class UserController < ApplicationController
     get "/users/sign-out" do
 
         session.clear
+        flash[:message] = "You have successfully signed out."
 
         redirect to "/"
     end

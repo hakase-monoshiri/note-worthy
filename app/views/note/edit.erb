@@ -8,11 +8,11 @@
     <br>
 
     <label for="satisfaction rating">Satisfaction</label> <br>
-    <input type="range" min="0" max="10" id="satisfaction rating" name="note[satisfaction_rating]" value="<%= @note.satisfaction_rating %>"required>
+    <input type="range" min="0" max="100" id="satisfaction rating" name="note[satisfaction_rating]" value="<%= @note.satisfaction_rating %>"required>
     <br>
 
     <label for="difficulty">Difficulty</label> <br>
-    <input type="range" min="0" max="10" id="difficulty" name="note[difficulty]" value="<%= @note.difficulty %>"required>
+    <input type="range" min="0" max="100" id="difficulty" name="note[difficulty]" value="<%= @note.difficulty %>"required>
     <br>
 
     <label for="content">Additional Details about your achievement</label> <br>

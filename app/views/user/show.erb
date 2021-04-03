@@ -10,8 +10,8 @@
         </a>
 
         <h5>Completed on: <%= note.completion_date.strftime("%B %-d, %Y at %l:%M%P") %></h5>
-        <h5> Diffculty Rating: <%= note.difficulty ||= "?" %>/10 </h5> 
-        <h5> Satisfaction Rating: <%= note.satisfaction_rating  ||= "?"  %>/10 </h5> 
+        <h5> Diffculty Rating: <%= note.difficulty ||= "?" %>/100 </h5> 
+        <h5> Satisfaction Rating: <%= note.satisfaction_rating  ||= "?"  %>/100 </h5> 
 
     </div>
 <br>
@@ -28,8 +28,8 @@
         </a>
 
         <h5>Completed on: <%= @user.greatest_note.completion_date.strftime("%B %-d, %Y at %l:%M%P") %></h5>
-        <h5> Diffculty Rating: <%= @user.greatest_note.difficulty ||= "?" %>/10 </h5> 
-        <h5> Satisfaction Rating: <%= @user.greatest_note.satisfaction_rating  ||= "?"  %>/10 </h5> 
+        <h5> Diffculty Rating: <%= @user.greatest_note.difficulty ||= "?" %>/100 </h5> 
+        <h5> Satisfaction Rating: <%= @user.greatest_note.satisfaction_rating  ||= "?"  %>/100 </h5> 
 
     </div>
 
@@ -43,8 +43,8 @@
         </a>
 
         <h5>Completed on: <%= @user.most_difficult.completion_date.strftime("%B %-d, %Y at %l:%M%P") %></h5>
-        <h5> Diffculty Rating: <%= @user.most_difficult.difficulty ||= "?" %>/10 </h5> 
-        <h5> Satisfaction Rating: <%= @user.most_difficult.satisfaction_rating  ||= "?"  %>/10 </h5> 
+        <h5> Diffculty Rating: <%= @user.most_difficult.difficulty ||= "?" %>/100 </h5> 
+        <h5> Satisfaction Rating: <%= @user.most_difficult.satisfaction_rating  ||= "?"  %>/100 </h5> 
 
     </div>
 
@@ -58,8 +58,8 @@
         </a>
 
         <h5>Completed on: <%= @user.most_satisfying.completion_date.strftime("%B %-d, %Y at %l:%M%P") %></h5>
-        <h5> Diffculty Rating: <%= @user.most_satisfying.difficulty ||= "?" %>/10 </h5> 
-        <h5> Satisfaction Rating: <%= @user.most_satisfying.satisfaction_rating  ||= "?"  %>/10 </h5> 
+        <h5> Diffculty Rating: <%= @user.most_satisfying.difficulty ||= "?" %>/100 </h5> 
+        <h5> Satisfaction Rating: <%= @user.most_satisfying.satisfaction_rating  ||= "?"  %>/100 </h5> 
 
     </div>
 

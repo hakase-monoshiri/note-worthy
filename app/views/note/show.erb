@@ -3,8 +3,8 @@
 <p> <%= @note.content %> </p> <br>
 
 
-<h3> Diffculty Rating: <%= @note.difficulty ||= "?" %>/10 </h3> <br>
-<h3> Satisfaction Rating: <%= @note.satisfaction_rating  ||= "?"  %>/10 </h3> <br>
+<h3> Diffculty Rating: <%= @note.difficulty ||= "?" %>/100 </h3> <br>
+<h3> Satisfaction Rating: <%= @note.satisfaction_rating  ||= "?"  %>/100 </h3> <br>
 
 <h5>Completed on: <%= @note.completion_date.strftime("%B %-d, %Y at %l:%M%P") %></h5>
 

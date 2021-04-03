@@ -1,10 +1,13 @@
 require './config/environment'
 require "rack-flash"
+require 'securerandom'
 
 class ApplicationController < Sinatra::Base
 
+  SECRET = SecureRandom.hex(16)
+
   use Rack::Flash
-  
+
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
@@ -12,7 +15,7 @@ class ApplicationController < Sinatra::Base
 
   configure do
     enable :sessions
-    set :session_secret, "idontknowhowtomakesecretsessioncodes"
+    set :session_secret, ENV.fetch('SESSION_SECRET') {SecureRandom.hex(64)}
   end 
 
   get "/" do

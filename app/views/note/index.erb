@@ -10,8 +10,8 @@
         </a>
 
         <h5>Completed on: <%= note.completion_date.strftime("%B %-d, %Y at %l:%M%P") %></h5>
-        <h5> Diffculty Rating: <%= note.difficulty ||= "?" %>/10 </h5> 
-        <h5> Satisfaction Rating: <%= note.satisfaction_rating  ||= "?"  %>/10 </h5> 
+        <h5> Diffculty Rating: <%= note.difficulty ||= "?" %>/100 </h5> 
+        <h5> Satisfaction Rating: <%= note.satisfaction_rating  ||= "?"  %>/100 </h5> 
 
     </div>
 <br>
