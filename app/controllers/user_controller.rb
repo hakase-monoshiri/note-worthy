@@ -1,5 +1,7 @@
 class UserController < ApplicationController
 
+    use Rack::Flash
+
     get "/users/new" do
 
         erb :"user/signup"
@@ -20,6 +22,7 @@ class UserController < ApplicationController
             session[:id] = @user.id
             redirect to "/users/#{@user.id}"
         else
+            flash[:message] = "Whoops! Looks like we couldn't find that email/password combination."
             redirect to "/"
         end
     end
@@ -27,12 +30,16 @@ class UserController < ApplicationController
 
     
     post "/users/new" do
+        if User.find_by(email: params[:user][:email])
 
-        if params[:password_confirmation] == params[:user][:password]
+            flash[:message] = "That user already exists. Please Log-in."
+            redirect to "/"
+        elsif params[:password_confirmation] == params[:user][:password]
            @user = User.create(params[:user])
            session[:id] = @user.id
            redirect to "/users/#{@user.id}"
         else
+            flash[:message] = "Sorry, looks like there was an error on the sign-up page. Please try again."
             redirect to "/users/new"
         end
     end

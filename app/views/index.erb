@@ -1,5 +1,9 @@
 <h1>Welcome to Noteworthy!</h1>
 
+<% if flash.has?(:message) %>
+  <h2 style="color:red;"><%= flash[:message] %></h2>
+<% end %> 
+
 <h3> Log in</h3> <br>
 
 <div class="sign-in">
