@@ -19,10 +19,15 @@
     <textarea type="text" id="content" name="note[content]" style="height:20vh; width:100%;"><%= @note.content %></textarea>
     <br>
 
+    <!-- I'm taking out the ability to change the completion date because I can't get it to default to the orignial datetime.
+    Rather than having to remember and re-input the date everytime, I decided it's more useable if date can't change.
+
+    I mean, realistically you can't change a date anyway.
+
     <label for="completion date">When was this completed?</label> <br>
     <input type="datetime-local" id="completion date" name="note[completion_date]" value="<%= @note.completion_date %>" required>
     <br>
-
+    -->
     
 
 
