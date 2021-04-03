@@ -1,0 +1,19 @@
+<h1> Welcome <%= @user.fullname %>! </h1> <br>
+
+<h2> Here are all your accomplishments! </h2> <br>
+
+<% @user.notes.each do |note| %>
+
+    <div class="note-container" id="<%= note.id %>-container">
+        <a href="/notes/ <%= note.id %>" >
+            <h4> <%= note.title %> </h4>
+        </a>
+
+        <h5>Completed on: <%= note.completion_date.strftime("%B %-d, %Y at %l:%M%P") %></h5>
+        <h5> Diffculty Rating: <%= note.difficulty ||= "?" %>/10 </h5> 
+        <h5> Satisfaction Rating: <%= note.satisfaction_rating  ||= "?"  %>/10 </h5> 
+
+    </div>
+<br>
+
+<% end %>

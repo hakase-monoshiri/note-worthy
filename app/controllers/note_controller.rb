@@ -1,5 +1,14 @@
 class NoteController < ApplicationController
 
+    get "/notes" do
+        if logged_in?
+            @user = current_user
+            erb :"note/index"
+        else
+            erb :"note/error"
+        end
+    end
+
     get "/notes/new" do
 
         erb :"note/new"
